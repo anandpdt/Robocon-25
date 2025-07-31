@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery - Team Phoenix</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <style>
+    html.dark { background: #0f0f0f; color: white; }
+    .orbitron { font-family: 'Orbitron', sans-serif; }
+    .poppins { font-family: 'Poppins', sans-serif; }
+    .highlight { color: #f97316; }
+    .gallery-item { display: none; }
+    .gallery-item.show { display: block; }
+  </style>
+</head>
+<body class="bg-black text-black transition-colors duration-300">
+
+  <!-- Preloader -->
+  <div id="preloader" class="preloader">Loading Gallery...</div>
+
+  <!-- Navbar -->
+  <nav class="fixed w-full z-50 bg-white dark:bg-black shadow-md p-4 flex justify-between items-center">
+    <div class="text-xl orbitron font-bold text-orange-500">🔥 Team Phoenix</div>
+    <ul class="flex gap-6 text-sm md:text-base">
+      <li><a href="1.html" class="hover:text-orange-500">Home</a></li>
+      <li><a href="resource.html" class="hover:text-orange-500">Resources</a></li>
+      <li><a href="team.html" class="hover:text-orange-500">Team</a></li>
+      <li><a href="gallery.html" class="hover:text-orange-500">Gallery</a></li>
+      <li><a href="contact.html" class="hover:text-orange-500">Contact</a></li>
+    </ul>
+    <button onclick="toggleTheme()" class="ml-4 px-2 py-1 border rounded">🌗</button>
+  </nav>
+
+   <!-- 🏠 Hero Section with Image Slider Background -->
+<section id="home" class="relative h-[50vh] flex items-end text-center px-4 pb-12 overflow-hidden">
+  <!-- 🔄 Background Slider -->
+  <div class="absolute inset-0 z-0 overflow-hidden flex items-center justify-center" id="slider">
+    <img src="image1.png" class="hero-slide absolute inset-0 mx-auto w-full h-full object-contain opacity-100 transition-opacity duration-1000" />
+    <img src="1.jpg" class="hero-slide absolute inset-0 mx-auto w-full h-full object-contain opacity-0 transition-opacity duration-1000" />
+
+    <div class="absolute inset-0 bg-black opacity-40"></div>
+
+    <!-- Arrows -->
+    <button onclick="prevSlide()" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-3xl">❮</button>
+    <button onclick="nextSlide()" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-3xl">❯</button>
+
+    <!-- Dots -->
+    <div class="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex gap-2" id="hero-dots"></div>
+  </div>
+
+  <!-- ✅ Hero Content -->
+  <div class="fade-in relative z-10 w-full">
+    <h1 class="text-4xl md:text-5xl orbitron font-bold mb-2 text-orange-500">Team Phoenix</h1>
+    <p class="text-lg md:text-xl poppins max-w-xl mx-auto text-gray-200 dark:text-gray-300">
+      IIT Patna Robocon | Engineering | Innovation | Teamwork
+    </p>
+    <a href="#about" class="mt-4 inline-block px-6 py-2 bg-orange-500 text-white rounded-full hover:bg-orange-600 transition">
+      Explore More
+    </a>
+  </div>
+</section>
+
+
+
+  <!-- Gallery Filters -->
+  <section class="py-10 px-6 bg-gray-100 dark:bg-gray-900">
+    <div class="text-center mb-6">
+      <button class="filter-btn bg-orange-500 text-white px-4 py-2 rounded m-1" data-filter="all">All</button>
+      <button class="filter-btn bg-gray-300 dark:bg-gray-700 px-4 py-2 rounded m-1" data-filter="robocon2024">Robocon 2024</button>
+      <button class="filter-btn bg-gray-300 dark:bg-gray-700 px-4 py-2 rounded m-1" data-filter="iroc">IROC</button>
+      <button class="filter-btn bg-gray-300 dark:bg-gray-700 px-4 py-2 rounded m-1" data-filter="robocon2025">Robocon 2025</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+      <img src="img1.jpg" class="gallery-item show rounded-lg shadow" data-category="robocon2024">
+      <img src="img2.jpg" class="gallery-item show rounded-lg shadow" data-category="robocon2024">
+      <img src="img3.jpg" class="gallery-item show rounded-lg shadow" data-category="iroc">
+      <img src="img4.jpg" class="gallery-item show rounded-lg shadow" data-category="iroc">
+      <img src="img5.jpg" class="gallery-item show rounded-lg shadow" data-category="robocon2025">
+      <img src="img6.jpg" class="gallery-item show rounded-lg shadow" data-category="robocon2025">
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-4 bg-black text-white text-sm">
+    © 2025 Team Phoenix - IIT Patna Robocon
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    AOS.init();
+    window.onload = () => document.getElementById("preloader").style.display = "none";
+
+    // Filter Gallery
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    const items = document.querySelectorAll(".gallery-item");
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const filter = btn.getAttribute("data-filter");
+
+        filterBtns.forEach(b => b.classList.remove("bg-orange-500","text-white"));
+        btn.classList.add("bg-orange-500","text-white");
+
+        items.forEach(item => {
+          if (filter === "all" || item.dataset.category === filter) {
+            item.classList.add("show");
+          } else {
+            item.classList.remove("show");
+          }
+        });
+      });
+    });
+
+    // Theme Toggle
+    function toggleTheme() {
+      document.documentElement.classList.toggle("dark");
+      localStorage.theme = document.documentElement.classList.contains("dark") ? "dark" : "light";
+    }
+    if (localStorage.theme === 'dark') document.documentElement.classList.add("dark");
+  </script>
+</body>
+</html>

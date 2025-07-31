@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team Phoenix - IIT Patna Robocon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <style>
+    html.dark {
+      --tw-bg-opacity: 1;
+      background-color: rgb(15 15 15 / var(--tw-bg-opacity));
+      color: white;
+    }
+    .orbitron { font-family: 'Orbitron', sans-serif; }
+    .poppins { font-family: 'Poppins', sans-serif; }
+    .fade-in { animation: fadeIn 1.5s ease-in-out; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .preloader {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: black;
+      color: white;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Orbitron';
+      font-size: 2rem;
+      letter-spacing: 2px;
+    }
+    .highlight {
+      color: #f97316; /* orange-500 */
+    }
+  </style>
+</head>
+<body class="bg-black text-black transition-colors duration-300">
+
+
+  <!-- 🔄 Preloader -->
+  <div id="preloader" class="preloader">Launching Team Phoenix...</div>
+
+  <!-- 🔝 Navbar -->
+  <nav class="fixed w-full z-50 bg-white dark:bg-black shadow-md p-4 flex justify-between items-center">
+    <div class="text-xl orbitron font-bold text-orange-500">🔥 Team Phoenix</div>
+    <ul class="flex gap-6 text-sm md:text-base">
+      <li><a href="1.html" class="hover:text-orange-500">Home</a></li>
+      <li><a href="resource.html" class="hover:text-orange-500">Resources</a></li>
+      <li><a href="team.html" class="hover:text-orange-500">Team</a></li>
+      
+      <li><a href="gallery.html" class="hover:text-orange-500">Gallery</a></li>
+      <li><a href="contact.html" class="hover:text-orange-500">Contact</a></li>
+    </ul>
+    <button onclick="toggleTheme()" class="ml-4 px-2 py-1 border rounded">
+      🌗
+    </button>
+  </nav>
+
+  <!-- 🏠 Hero Section with Image Slider Background -->
+<section id="home" class="relative h-screen flex flex-col justify-end text-center px-4 pb-21 overflow-hidden">
+  <div class="absolute inset-0 z-0 overflow-hidden flex items-center justify-center" id="slider">
+    <img src="image1.png" class="hero-slide absolute inset-0 mx-auto max-w-full max-h-full object-contain opacity-100 transition-opacity duration-1000" />
+   
+    <!-- Add more <img> here if needed -->
+
+    <div class="absolute inset-0 bg-black opacity-40"></div>
+
+
+  <div class="fade-in relative z-10">
+    <h1 class="text-5xl md:text-7xl orbitron font-bold mb-4 text-orange-500">Team Phoenix</h1>
+    <p class="text-xl poppins max-w-xl mx-auto text-gray-200 dark:text-gray-300">
+      IIT Patna Robocon | Engineering | Innovation | Teamwork
+    </p>
+    
+    </a>
+  </div>
+</section>
+
+
+  
+
+  <!-- 🧠 About Section -->
+  <section id="about" class="py-16 px-6 bg-gray-100 dark:bg-gray-900" data-aos="fade-up">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+      <img src="https://via.placeholder.com/500x300" alt="robot" class="rounded-lg shadow-lg" />
+      <div>
+        <h2 class="text-3xl orbitron mb-4"><span class="highlight">About</span> Team Phoenix</h2>
+        <p class="poppins">We are Team Phoenix, representing IIT Patna in different Robotics competition. Rising with passion, precision and perseverance, our team brings together engineers from diverse fields to build next-gen robots and compete at the national and international stage.</p>
+      </div>
+    </div>
+  </section>
+<!-- what we do section-->
+ <section id="what-we-do" class="py-16 px-6 bg-gray-100 dark:bg-gray-900" data-aos="fade-up">
+  <h2 class="text-3xl text-center orbitron mb-10 highlight">-What We Do-</h2>
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    
+    <!-- Box 1 -->
+    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow hover:scale-105 transition">
+      <img src="img/rover.jpg" alt="ISRO Rover" class="w-full h-40 object-cover rounded-md mb-4" />
+      <h4 class="font-bold text-lg">ISRO Rover Challenge</h4>
+      <p class="text-sm text-gray-700 dark:text-gray-300">The Robocon and allied clubs of IIT Patna are dedicated to fostering knowledge‑sharing and skill development through events like the ISRO Rover Challenge, where participants can witness captivating demonstrations of our cutting‑edge projects.</p>
+    </div>
+
+    <!-- Box 2 -->
+    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow hover:scale-105 transition">
+      <img src="img/ws2.jpg" alt="Workshops" class="w-full h-40 object-cover rounded-md mb-4" />
+      <h4 class="font-bold text-lg">Workshops</h4>
+      <p class="text-sm text-gray-700 dark:text-gray-300">Robocon and the allied clubs, including Tinkering Lab, promote skill-building through regular workshops and tech demonstrations.</p>
+    </div>
+
+    <!-- Box 3 -->
+    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow hover:scale-105 transition">
+      <img src="img/nationals.jpg" alt="Robocon Finals" class="w-full h-40 object-cover rounded-md mb-4" />
+      <h4 class="font-bold text-lg">Robocon National Finals</h4>
+      <p class="text-sm text-gray-700 dark:text-gray-300">Robocon Nationals, hosted by DD and IIT Delhi, are broadcast live and showcase our robots to a nationwide audience.</p>
+    </div>
+
+    <!-- Box 4 -->
+    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow hover:scale-105 transition">
+      <img src="img/bot.jpg" alt="3D CAD" class="w-full h-40 object-cover rounded-md mb-4" />
+      <h4 class="font-bold text-lg">Design and Simulate</h4>
+      <p class="text-sm text-gray-700 dark:text-gray-300">We create intricate 3D models and simulations to visualize and iterate ideas with precision before building.</p>
+    </div>
+
+    <!-- Box 5 -->
+    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow hover:scale-105 transition">
+      <img src="5.png" alt="App Dev" class="w-full h-40 object-cover rounded-md mb-4" />
+      <h4 class="font-bold text-lg">Remote Control Apps</h4>
+      <p class="text-sm text-gray-700 dark:text-gray-300">We develop mobile and web apps to remotely control and monitor our robots and test instruments.</p>
+    </div>
+
+    <!-- Box 6 -->
+    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow hover:scale-105 transition">
+      <img src="6.png" alt="Prototype" class="w-full h-40 object-cover rounded-md mb-4" />
+      <h4 class="font-bold text-lg">Prototype Wild Mechanisms</h4>
+      <p class="text-sm text-gray-700 dark:text-gray-300">Our engineering journey includes building crazy mechanisms—many fail, but the learning never does.</p>
+    </div>
+
+    <!-- Box 7 -->
+    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow hover:scale-105 transition">
+      <img src="7.png" alt="ML OPS" class="w-full h-40 object-cover rounded-md mb-4" />
+      <h4 class="font-bold text-lg">ML OPS</h4>
+      <p class="text-sm text-gray-700 dark:text-gray-300">Deploying experimental ML models for novel tasks in robotics and controls.</p>
+    </div>
+
+    <!-- Box 8 -->
+    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow hover:scale-105 transition">
+      <img src="img/pcb.jpg" alt="Circuit Design" class="w-full h-40 object-cover rounded-md mb-4" />
+      <h4 class="font-bold text-lg">Circuit Design</h4>
+      <p class="text-sm text-gray-700 dark:text-gray-300">We design and refine our own PCBs each year with focus on performance and upgradability.</p>
+    </div>
+
+    <!-- Box 9 -->
+    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow hover:scale-105 transition">
+      <img src="9.png" alt="CAD" class="w-full h-40 object-cover rounded-md mb-4" />
+      <h4 class="font-bold text-lg">CAD</h4>
+      <p class="text-sm text-gray-700 dark:text-gray-300">We use advanced CAD tools to create adaptable, efficient, and upgradable robot designs.</p>
+    </div>
+
+    <!-- Box 10 -->
+    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow hover:scale-105 transition">
+      <img src="10.png" alt="Space Robotics" class="w-full h-40 object-cover rounded-md mb-4" />
+      <h4 class="font-bold text-lg">Space Robotics</h4>
+      <p class="text-sm text-gray-700 dark:text-gray-300">Working on novel space robotics solutions, testing motion, communication, and terrain handling systems.</p>
+    </div>
+
+    <!-- Box 11 -->
+    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow hover:scale-105 transition">
+      <img src="11.png" alt="ROS" class="w-full h-40 object-cover rounded-md mb-4" />
+      <h4 class="font-bold text-lg">Robot Operating System (ROS)</h4>
+      <p class="text-sm text-gray-700 dark:text-gray-300">We architect and refine ROS-based control systems to allow modular, scalable robotic development.</p>
+    </div>
+    
+  </div>
+</section>
+
+ <!-- 🧭 What is ABU Robocon -->
+<section id="timeline" class="py-20 px-6 bg-white dark:bg-gray-900" data-aos="fade-up">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-lg md:text-xl uppercase text-red-600 font-extrabold tracking-wide mb-3">WHAT IS ABU-ROBOCON?</h2>
+    <h3 class="text-5xl md:text-6xl font-extrabold mb-6 text-black dark:text-white leading-tight">
+      ABU-Robocon is an <span class="text-orange-500">International Robot Contest</span>
+    </h3>
+    <p class="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-4xl mx-auto mb-16">
+      hosted by Asia-Pacific Broadcasting Union. DD Robocon the national competition takes place in 3 rounds, participating teams from all over India.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <!-- Stage 1 -->
+      <div class="relative bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition transform hover:scale-105">
+        <div class="text-[12rem] md:text-[14rem] text-blue-300 absolute -top-16 -left-6 font-extrabold opacity-25 select-none pointer-events-none leading-none">1</div>
+        <p class="text-red-600 font-semibold mb-2 relative z-10 text-lg">Stage 1</p>
+        <p class="text-black dark:text-white font-bold text-xl relative z-10">Detailed Idea & Design Report </p>
+      </div>
+
+      <!-- Stage 2 -->
+      <div class="relative bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition transform hover:scale-105">
+        <div class="text-[12rem] md:text-[14rem] text-blue-300 absolute -top-16 -left-6 font-extrabold opacity-25 select-none pointer-events-none leading-none">2</div>
+        <p class="text-red-600 font-semibold mb-2 relative z-10 text-lg">Stage 2</p>
+        <p class="text-black dark:text-white font-bold text-xl relative z-10">Robot Working Video Demonstration with proper Dimensions</p>
+      </div>
+
+      <!-- Stage 3 -->
+      <div class="relative bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition transform hover:scale-105">
+        <div class="text-[12rem] md:text-[14rem] text-blue-300 absolute -top-16 -left-6 font-extrabold opacity-25 select-none pointer-events-none leading-none">3</div>
+        <p class="text-red-600 font-semibold mb-2 relative z-10 text-lg">Stage 3</p>
+        <p class="text-black dark:text-white font-bold text-xl relative z-10">Final matches at National Level</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 🔘 View Our Robots Button -->
+<div class="py-10 text-center bg-white dark:bg-white" data-aos="fade-up">
+  <a href="bot.html" class="inline-block px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white text-lg font-semibold rounded-full transition duration-300 shadow-lg">
+    🔧 View Our Robots
+  </a>
+</div>
+
+
+  <!-- testimonials -->
+   
+
+<section id="testimonials" class="py-16 px-6 bg-gray-50 dark:bg-gray-900" data-aos="fade-up">
+  <h2 class="text-3xl text-center orbitron mb-10 highlight">Testimonials</h2>
+  <div class="relative max-w-4xl mx-auto overflow-hidden">
+
+    <!-- Slides Container -->
+    <div id="testimonial-slider" class="slider relative w-full">
+      <!-- Slide Template -->
+     <div class="slide relative opacity-100 transition-opacity duration-1000 flex flex-col items-center text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
+
+        <img src="img/bot.jpg" alt="photo" class="w-24 h-24 object-cover rounded-full mb-4" />
+        <h3 class="text-xl font-bold">Archit Anand</h3>
+        <p class="text-sm italic mb-4">Alumni and Team Captain 2021‑2022</p>
+        <p>Traversing the peaks and valleys of this glorious journey… our team kept the lore of the phoenix alive!</p>
+      </div>
+      <!-- Repeat for 10 slides, changing src and content -->
+      <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 flex flex-col items-center text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
+        <img src="image1.png" class="w-24 h-24 object-cover rounded-full mb-4" />
+        <h3 class="text-xl font-bold">Akshat Jain</h3>
+        <p class="text-sm italic mb-4">Alumni and Team Captain 2020‑2021</p>
+        <p>We can draw a lot of motivation and inspiration from our team… they have come out more stronger and ambitious than before.</p>
+      </div>
+      <!-- Slide 3 -->
+      <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 flex flex-col items-center text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
+        <img src="3.png" class="w-24 h-24 object-cover rounded-full mb-4" />
+        <h3 class="text-xl font-bold">Pratham Chaudhary</h3>
+        <p class="text-sm italic mb-4">Team Captain 2022‑2023</p>
+        <p>Being part of Team Phoenix has truly been the most amazing memories… "Failure is never truly an option if the yardstick of your success is the knowledge you gain."</p>
+      </div>
+      <!-- Slide 4 -->
+      <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 flex flex-col items-center text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
+        <img src="4.png" class="w-24 h-24 object-cover rounded-full mb-4" />
+        <h3 class="text-xl font-bold">Piyush Tewari</h3>
+        <p class="text-sm italic mb-4">Vice‑Captain 2023‑2024</p>
+        <p>Success is an easy path if interest is your driver.</p>
+      </div>
+      <!-- Slide 5 -->
+      <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 flex flex-col items-center text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
+        <img src="5.png" class="w-24 h-24 object-cover rounded-full mb-4" />
+        <h3 class="text-xl font-bold">Devansh Choudhary</h3>
+        <p class="text-sm italic mb-4">Alumni & Vice‑Captain 2021‑2022</p>
+        <p>Being a part of Robocon club has been an exhilarating adventure… This club is more than just a team; it's a family united by the love for robotics.</p>
+      </div>
+      <!-- Slide 6 -->
+      <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 flex flex-col items-center text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
+        <img src="6.png" class="w-24 h-24 object-cover rounded-full mb-4" />
+        <h3 class="text-xl font-bold">Panav Arpit Raaj</h3>
+        <p class="text-sm italic mb-4">Team Captain 2023‑2024</p>
+        <p>This team thrives on competition… Striving for excellence is essential, as we must surpass the efforts of numerous competing teams across Asia.</p>
+      </div>
+      <!-- Slide 7 -->
+      <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 flex flex-col items-center text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
+        <img src="7.png" class="w-24 h-24 object-cover rounded-full mb-4" />
+        <h3 class="text-xl font-bold">Rohit Gupta</h3>
+        <p class="text-sm italic mb-4">Alumni and Team Captain 2017‑2018</p>
+        <p>CTO and Co‑Founder of RangeAero, an aviation-logistics based startup operating from Bangalore.</p>
+      </div>
+      <!-- Slide 8 -->
+      <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 flex flex-col items-center text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
+        <img src="8.png" class="w-24 h-24 object-cover rounded-full mb-4" />
+        <h3 class="text-xl font-bold">Dhawal Gupta</h3>
+        <p class="text-sm italic mb-4">Founding Member & Vice‑Captain 2015‑2019</p>
+        <p>The initial absence of a Robocon team at IIT Patna began as a source of frustration but quickly turned into an unexpected opportunity to start something special… I am proud to have seen the team expand from 18 to over 50 students.</p>
+      </div>
+      <!-- Slide 9 -->
+      <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 flex flex-col items-center text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
+        <img src="9.png" class="w-24 h-24 object-cover rounded-full mb-4" />
+        <h3 class="text-xl font-bold">Nikhil Singh</h3>
+        <p class="text-sm italic mb-4">Team Member 2022‑2024</p>
+        <p>The competition not only challenged my technical skills but also fostered teamwork, creativity, and problem-solving… Building and programming a robot from scratch was both rewarding and educational.</p>
+      </div>
+      <!-- Slide 10 -->
+      <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 flex flex-col items-center text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
+        <img src="10.png" class="w-24 h-24 object-cover rounded-full mb-4" />
+        <h3 class="text-xl font-bold">Rishav Mitra</h3>
+        <p class="text-sm italic mb-4">Team Member 2022‑2024</p>
+        <p>Joining Team Phoenix… I credit more than half of my current Techstack to my time with Robocon – it's the most vibrant association of brilliant minds on our campus.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+  <!-- 📬 Contact -->
+  <section id="contact" class="py-16 px-6" data-aos="fade-up">
+    <h2 class="text-3xl text-center orbitron mb-10 highlight">Contact Us</h2>
+    <div class="text-center">
+      <p>Email: robocon@iitp.ac.in</p>
+      <p>Instagram: @teamphoenix_iitp</p>
+    </div>
+  </section>
+
+  <!-- 🔚 Footer -->
+  <footer class="text-center py-4 bg-black text-white text-sm">
+    © 2025 Team Phoenix - IIT Patna Robocon
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+     AOS.init();
+
+  window.onload = () => {
+    // ✅ Hide preloader when page loads
+    const preloader = document.getElementById("preloader");
+    preloader.style.display = "none";
+  // ✅ Hero image slider logic
+  const heroImages = document.querySelectorAll("#slider img");
+  let heroIndex = 0;
+
+  setInterval(() => {
+    heroImages[heroIndex].classList.remove("opacity-100");
+    heroImages[heroIndex].classList.add("opacity-0");
+
+    heroIndex = (heroIndex + 1) % heroImages.length;
+
+    heroImages[heroIndex].classList.remove("opacity-0");
+    heroImages[heroIndex].classList.add("opacity-100");
+  }, 4000); // change image every 4 seconds
+
+    // ✅ Testimonial slider logic
+    const slides = document.querySelectorAll('#testimonial-slider .slide');
+    let current = 0;
+    slides[current].classList.add('opacity-100');
+
+    setInterval(() => {
+      slides[current].classList.remove('opacity-100');
+      slides[current].classList.add('opacity-0');
+      current = (current + 1) % slides.length;
+      slides[current].classList.remove('opacity-0');
+      slides[current].classList.add('opacity-100');
+    }, 5000);
+  };
+
+  function toggleTheme() {
+    document.documentElement.classList.toggle("dark");
+    localStorage.theme = document.documentElement.classList.contains("dark") ? "dark" : "light";
+  }
+
+  if (localStorage.theme === 'dark') {
+    document.documentElement.classList.add("dark");
+  }
+  </script>
+</body>
+</html>
