@@ -6,12 +6,31 @@
   <title>Team Phoenix - IIT Patna Robocon</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class'
+  }
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <style>
+   
+  #mobileMenu {
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+  }
+  #mobileMenu.show {
+    max-height: 500px; /* enough height to display menu */
+    opacity: 1;
+  }
+
+
     html.dark {
       --tw-bg-opacity: 1;
       background-color: rgb(15 15 15 / var(--tw-bg-opacity));
@@ -41,32 +60,87 @@
     .highlight {
       color: #f97316; /* orange-500 */
     }
+    
   </style>
+  
+
+ <style>
+  nav {
+    background: black;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  nav .logo {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  nav .logo img {
+    height: 35px;
+    width: 35px;
+    object-fit: contain;
+    margin-right: 10px;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+  }
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+  }
+  nav ul li a:hover,
+  nav ul li a.active {
+    color: white;
+  }
+  nav ul li a.active::after,
+  nav ul li a:hover::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: orange;
+  }
+</style>
+
 </head>
-<body class="bg-black text-black transition-colors duration-300">
+<body id="theme-root" class="bg-white text-black dark:bg-black dark:text-white transition-colors duration-300">
+
 
 
   <!-- 🔄 Preloader -->
   <div id="preloader" class="preloader">Launching Team Phoenix...</div>
 
   <!-- 🔝 Navbar -->
-  <nav class="fixed w-full z-50 bg-white dark:bg-black shadow-md p-4 flex justify-between items-center">
-    <div class="text-xl orbitron font-bold text-orange-500">🔥 Team Phoenix</div>
-    <ul class="flex gap-6 text-sm md:text-base">
-      <li><a href="1.html" class="hover:text-orange-500">Home</a></li>
-      <li><a href="resource.html" class="hover:text-orange-500">Resources</a></li>
-      <li><a href="team.html" class="hover:text-orange-500">Team</a></li>
-      
-      <li><a href="gallery.html" class="hover:text-orange-500">Gallery</a></li>
-      <li><a href="contact.html" class="hover:text-orange-500">Contact</a></li>
-    </ul>
-    <button onclick="toggleTheme()" class="ml-4 px-2 py-1 border rounded">
-      🌗
-    </button>
-  </nav>
+  <nav>
+  <div class="logo">
+    <img src="image1-removebg-preview.png" alt="Team Phoenix Logo">
+    Team Phoenix<span style="color:orange;">.</span>
+  </div>
+  <ul>
+    <li><a href="1.html" class="active">Home</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="gallery.html" >Gallery</a></li>
+    <li><a href="resource.html">Resources</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
 
   <!-- 🏠 Hero Section with Image Slider Background -->
-<section id="home" class="relative h-screen bg-black text-white px-6">
+   
+
+<section id="home" class="relative h-1/3 bg-black text-white px-6">
   <div id="particles-js" class="absolute inset-0 z-0"></div>
 </div>
 
@@ -78,7 +152,7 @@
     
     <!-- 🖼️ Image Half -->
     <div class="flex justify-center">
-      <img src="image1.png" alt="Phoenix Logo" class="max-h-[80vh] object-contain" />
+      <img src="image1-removebg-preview.png" alt="Phoenix Logo" class="max-h-[80vh] object-contain" />
     </div>
 
     <!-- 📝 Text Half -->
@@ -98,7 +172,18 @@
   <!-- 🧠 About Section -->
   <section id="about" class="py-16 px-6 bg-gray-100 dark:bg-gray-900" data-aos="fade-up">
     <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center">
-      <img src="https://via.placeholder.com/500x300" alt="robot" class="rounded-lg shadow-lg" />
+     <div class="relative w-full h-[300px] overflow-hidden rounded-lg shadow-lg">
+  <div id="about-slider" class="w-full h-full relative">
+    <img src="1.jpg" class="about-slide absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-700 opacity-100" alt="Robot 1">
+    <img src="img/2.jpg" class="about-slide absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-700 opacity-0" alt="Robot 2">
+    <img src="3.png" class="about-slide absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-700 opacity-0" alt="Robot 3">
+  </div>
+
+  <!-- Arrows -->
+  <button onclick="prevAboutSlide()" class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-2 py-1 rounded-full z-10">❮</button>
+  <button onclick="nextAboutSlide()" class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-2 py-1 rounded-full z-10">❯</button>
+</div>
+
       <div>
         <h2 class="text-3xl orbitron mb-4"><span class="highlight">About</span> Team Phoenix</h2>
         <p class="poppins">We are Team Phoenix, representing IIT Patna in different Robotics competition. Rising with passion, precision and perseverance, our team brings together engineers from diverse fields to build next-gen robots and compete at the national and international stage.</p>
@@ -239,85 +324,125 @@
 
 <section id="testimonials" class="py-16 px-6 bg-gray-50 dark:bg-gray-900" data-aos="fade-up">
   <h2 class="text-3xl text-center orbitron mb-10 highlight">Testimonials</h2>
-  <div class="relative max-w-4xl mx-auto overflow-hidden">
 
-    <!-- Slides Container -->
-    <div id="testimonial-slider" class="slider relative w-full">
-      <!-- Slide Template -->
-     <div class="slide relative opacity-100 transition-opacity duration-1000 flex flex-col items-center text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
+  <div class="relative max-w-5xl mx-auto overflow-hidden">
+    <!-- Track -->
+    <div id="testimonial-track" class="flex transition-transform duration-700 ease-in-out">
+      
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card flex-none w-3/4 mx-2 p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg transform scale-90 opacity-70">
+        <div class="flex gap-4">
+          <img src="3.png" class="w-24 h-24 rounded-full shadow-lg" alt="Profile">
+          <div>
+            <h3 class="text-xl font-bold">Pratham Chaudhary</h3>
+            <p class="text-sm italic mb-2">Team Captain 2022-2023</p>
+            <p class="text-gray-700 dark:text-gray-300">
+              Being part of Team Phoenix has truly been the most amazing memories of my college journey...
+              <span class="font-semibold">"Failure is never truly an option if the yardstick of your success is the knowledge you gain."</span>
+            </p>
+          </div>
+        </div>
+      </div>
 
-        <img src="img/bot.jpg" alt="photo" class="w-24 h-24 object-cover rounded-full mb-4" />
-        <h3 class="text-xl font-bold">Archit Anand</h3>
-        <p class="text-sm italic mb-4">Alumni and Team Captain 2021‑2022</p>
-        <p>Traversing the peaks and valleys of this glorious journey… our team kept the lore of the phoenix alive!</p>
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card flex-none w-3/4 mx-2 p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg transform scale-90 opacity-70">
+        <div class="flex gap-4">
+          <img src="4.png" class="w-24 h-24 rounded-full shadow-lg" alt="Profile">
+          <div>
+            <h3 class="text-xl font-bold">Piyush Tewari</h3>
+            <p class="text-sm italic mb-2">Vice-Captain 2023-2024</p>
+            <p class="text-gray-700 dark:text-gray-300">Success is an easy path if interest is your driver.</p>
+          </div>
+        </div>
       </div>
-      <!-- Repeat for 10 slides, changing src and content -->
-      <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 flex flex-col items-center text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
-        <img src="image1.png" class="w-24 h-24 object-cover rounded-full mb-4" />
-        <h3 class="text-xl font-bold">Akshat Jain</h3>
-        <p class="text-sm italic mb-4">Alumni and Team Captain 2020‑2021</p>
-        <p>We can draw a lot of motivation and inspiration from our team… they have come out more stronger and ambitious than before.</p>
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card flex-none w-3/4 mx-2 p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg transform scale-90 opacity-70">
+        <div class="flex gap-4">
+          <img src="5.png" class="w-24 h-24 rounded-full shadow-lg" alt="Profile">
+          <div>
+            <h3 class="text-xl font-bold">Devansh Choudhary</h3>
+            <p class="text-sm italic mb-2">Alumni & Vice-Captain 2021‑2022</p>
+            <p class="text-gray-700 dark:text-gray-300">Being a part of Robocon club has been an exhilarating adventure… This club is more than just a team; it's a family united by the love for robotics.</p>
+          </div>
+        </div>
       </div>
-      <!-- Slide 3 -->
-      <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 flex flex-col items-center text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
-        <img src="3.png" class="w-24 h-24 object-cover rounded-full mb-4" />
-        <h3 class="text-xl font-bold">Pratham Chaudhary</h3>
-        <p class="text-sm italic mb-4">Team Captain 2022‑2023</p>
-        <p>Being part of Team Phoenix has truly been the most amazing memories… "Failure is never truly an option if the yardstick of your success is the knowledge you gain."</p>
-      </div>
-      <!-- Slide 4 -->
-      <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 flex flex-col items-center text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
-        <img src="4.png" class="w-24 h-24 object-cover rounded-full mb-4" />
-        <h3 class="text-xl font-bold">Piyush Tewari</h3>
-        <p class="text-sm italic mb-4">Vice‑Captain 2023‑2024</p>
-        <p>Success is an easy path if interest is your driver.</p>
-      </div>
-      <!-- Slide 5 -->
-      <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 flex flex-col items-center text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
-        <img src="5.png" class="w-24 h-24 object-cover rounded-full mb-4" />
-        <h3 class="text-xl font-bold">Devansh Choudhary</h3>
-        <p class="text-sm italic mb-4">Alumni & Vice‑Captain 2021‑2022</p>
-        <p>Being a part of Robocon club has been an exhilarating adventure… This club is more than just a team; it's a family united by the love for robotics.</p>
-      </div>
-      <!-- Slide 6 -->
-      <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 flex flex-col items-center text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
-        <img src="6.png" class="w-24 h-24 object-cover rounded-full mb-4" />
-        <h3 class="text-xl font-bold">Panav Arpit Raaj</h3>
-        <p class="text-sm italic mb-4">Team Captain 2023‑2024</p>
-        <p>This team thrives on competition… Striving for excellence is essential, as we must surpass the efforts of numerous competing teams across Asia.</p>
-      </div>
-      <!-- Slide 7 -->
-      <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 flex flex-col items-center text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
-        <img src="7.png" class="w-24 h-24 object-cover rounded-full mb-4" />
-        <h3 class="text-xl font-bold">Rohit Gupta</h3>
-        <p class="text-sm italic mb-4">Alumni and Team Captain 2017‑2018</p>
-        <p>CTO and Co‑Founder of RangeAero, an aviation-logistics based startup operating from Bangalore.</p>
-      </div>
-      <!-- Slide 8 -->
-      <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 flex flex-col items-center text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
-        <img src="8.png" class="w-24 h-24 object-cover rounded-full mb-4" />
-        <h3 class="text-xl font-bold">Dhawal Gupta</h3>
-        <p class="text-sm italic mb-4">Founding Member & Vice‑Captain 2015‑2019</p>
-        <p>The initial absence of a Robocon team at IIT Patna began as a source of frustration but quickly turned into an unexpected opportunity to start something special… I am proud to have seen the team expand from 18 to over 50 students.</p>
-      </div>
-      <!-- Slide 9 -->
-      <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 flex flex-col items-center text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
-        <img src="9.png" class="w-24 h-24 object-cover rounded-full mb-4" />
-        <h3 class="text-xl font-bold">Nikhil Singh</h3>
-        <p class="text-sm italic mb-4">Team Member 2022‑2024</p>
-        <p>The competition not only challenged my technical skills but also fostered teamwork, creativity, and problem-solving… Building and programming a robot from scratch was both rewarding and educational.</p>
-      </div>
-      <!-- Slide 10 -->
-      <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 flex flex-col items-center text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
-        <img src="10.png" class="w-24 h-24 object-cover rounded-full mb-4" />
-        <h3 class="text-xl font-bold">Rishav Mitra</h3>
-        <p class="text-sm italic mb-4">Team Member 2022‑2024</p>
-        <p>Joining Team Phoenix… I credit more than half of my current Techstack to my time with Robocon – it's the most vibrant association of brilliant minds on our campus.</p>
-      </div>
+
+      <!-- Add more testimonials here -->
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex justify-center mt-4 space-x-3">
+      <button id="prev" class="bg-orange-500 text-white px-3 py-1 rounded-full shadow">❮</button>
+      <button id="next" class="bg-orange-500 text-white px-3 py-1 rounded-full shadow">❯</button>
     </div>
   </div>
 </section>
 
+<script>
+const track = document.getElementById('testimonial-track');
+const cards = document.querySelectorAll('.testimonial-card');
+let index = 0;
+let cardWidth = cards[0].offsetWidth + 16; // include margin
+let startX = 0;
+let isDragging = false;
+
+function updateSlide() {
+  // infinite loop trick: when at end, reset to start
+  if (index >= cards.length) index = 0;
+  if (index < 0) index = cards.length - 1;
+
+  track.style.transform = `translateX(-${index * cardWidth}px)`;
+
+  // scale + opacity effect
+  cards.forEach((c, i) => {
+    if (i === index) {
+      c.classList.add('scale-100', 'opacity-100');
+      c.classList.remove('scale-90', 'opacity-70');
+    } else {
+      c.classList.remove('scale-100', 'opacity-100');
+      c.classList.add('scale-90', 'opacity-70');
+    }
+  });
+}
+
+// Button navigation
+document.getElementById('next').addEventListener('click', () => {
+  index++;
+  updateSlide();
+});
+document.getElementById('prev').addEventListener('click', () => {
+  index--;
+  updateSlide();
+});
+
+// Auto-slide every 5s
+setInterval(() => {
+  index++;
+  updateSlide();
+}, 5000);
+
+// Touch swipe support
+track.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX;
+  isDragging = true;
+});
+track.addEventListener('touchmove', (e) => {
+  if (!isDragging) return;
+  let moveX = e.touches[0].clientX - startX;
+  track.style.transform = `translateX(${-index * cardWidth + moveX}px)`;
+});
+track.addEventListener('touchend', (e) => {
+  isDragging = false;
+  let endX = e.changedTouches[0].clientX;
+  if (startX - endX > 50) index++;
+  if (endX - startX > 50) index--;
+  updateSlide();
+});
+
+// Initial state
+updateSlide();
+</script>
 
 
 
@@ -371,14 +496,15 @@
     }, 5000);
   };
 
-  function toggleTheme() {
-    document.documentElement.classList.toggle("dark");
-    localStorage.theme = document.documentElement.classList.contains("dark") ? "dark" : "light";
-  }
+ function toggleTheme() {
+  document.body.classList.toggle("dark");
+  localStorage.theme = document.body.classList.contains("dark") ? "dark" : "light";
+}
 
-  if (localStorage.theme === 'dark') {
-    document.documentElement.classList.add("dark");
-  }
+if (localStorage.theme === 'dark') {
+  document.body.classList.add("dark");
+}
+
   
   </script>
   <script>
@@ -432,6 +558,60 @@
   });
 </script>
 
-  
+  <script>
+  let aboutSlides = document.querySelectorAll(".about-slide");
+  let aboutIndex = 0;
+
+  function showAboutSlide(index) {
+    aboutSlides.forEach((slide, i) => {
+      slide.classList.toggle("opacity-100", i === index);
+      slide.classList.toggle("opacity-0", i !== index);
+    });
+  }
+
+  function nextAboutSlide() {
+    aboutIndex = (aboutIndex + 1) % aboutSlides.length;
+    showAboutSlide(aboutIndex);
+  }
+
+  function prevAboutSlide() {
+    aboutIndex = (aboutIndex - 1 + aboutSlides.length) % aboutSlides.length;
+    showAboutSlide(aboutIndex);
+  }
+
+  // Optional: Auto-slide every 5 seconds
+  setInterval(nextAboutSlide, 5000);
+</script>
+<script>
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('show');
+}
+function toggleMenuIcon(){
+  toggleMenu();
+  document.getElementById('burger-lines').classList.toggle('burger-active');
+}
+</script>
+
+<script>
+// ✅ Close menu when clicking a link
+document.querySelectorAll('#mobileMenu a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('mobileMenu').style.display = "none";
+    document.getElementById('mobileMenu').classList.remove('show');
+    document.getElementById('burger-lines').classList.remove('burger-active');
+  });
+});
+
+// ✅ Close menu when clicking outside
+document.addEventListener('click', (event) => {
+  const menu = document.getElementById('mobileMenu');
+  const burger = document.getElementById('burger');
+  if(menu.classList.contains('show') && !menu.contains(event.target) && !burger.contains(event.target)){
+    menu.style.display = "none";
+    menu.classList.remove('show');
+    document.getElementById('burger-lines').classList.remove('burger-active');
+  }
+});
+</script>
 </body>
 </html>
